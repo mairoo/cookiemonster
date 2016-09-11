@@ -12,19 +12,21 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+from configparser import ConfigParser
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '^qmx)!g%yp3^*ici4bq^0)7+uu4t+p2fxtvw7rpbpm4ejml@0y'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-ALLOWED_HOSTS = []
+config = ConfigParser(interpolation=None)
+config.read('properties.ini')
+
+DEBUG = config.getboolean('LOCAL', 'DEBUG')
+ALLOWED_HOSTS = [x.strip() for x in config['LOCAL']['ALLOWED_HOSTS'].split(',') if x]
+SECRET_KEY = config['LOCAL']['SECRET_KEY']
 
 # Application definition
 

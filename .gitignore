@@ -143,3 +143,9 @@ fabric.properties
 
 # SQLite3
 *.sqlite3
+
+# static / media root
+static
+
+# Configuration INI file
+properties.ini

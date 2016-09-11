@@ -5,8 +5,12 @@ from .base import *
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': config['LOCAL']['DATABASE_ENGINE'],
+        'NAME': config['LOCAL']['DATABASE_NAME'],
+        'USER': config['LOCAL']['DATABASE_USER'],
+        'PASSWORD': config['LOCAL']['DATABASE_PASSWORD'],
+        'HOST': config['LOCAL']['DATABASE_HOST'],
+        'PORT': config['LOCAL']['DATABASE_PORT'],
     }
 }
 
