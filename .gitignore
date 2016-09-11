@@ -101,6 +101,7 @@ ENV/
 .idea/modules.xml
 .idea/misc.xml
 .idea/*.iml
+.idea/dataSources
 
 # Sensitive or high-churn files:
 .idea/dataSources.ids
@@ -139,3 +140,6 @@ fabric.properties
 
 
 ## Cookiemonster
+
+# SQLite3
+*.sqlite3
