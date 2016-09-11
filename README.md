@@ -1,0 +1,2 @@
+# cookiemonster
+django app skeleton
